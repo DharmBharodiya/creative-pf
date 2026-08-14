@@ -16,10 +16,30 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Quicksand";
+  src: url("/fonts/quicksand/Quicksand_Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("/fonts/quicksand/Quicksand_Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 .font-sloop {
   font-family: "Sloop", cursive;
 }
 
 .font-times {
   font-family: "Times New Roman Custom", "Times New Roman", serif;
+}
+
+.font-quicksand {
+  font-family: "Quicksand", sans-serif;
 }
