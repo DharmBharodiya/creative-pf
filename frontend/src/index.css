@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Sloop";
+  src: url("/fonts/sloop/Sloop-ScriptThree.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Times New Roman Custom";
+  src: url("/fonts/times-new-roman/times.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-sloop {
+  font-family: "Sloop", cursive;
+}
+
+.font-times {
+  font-family: "Times New Roman Custom", "Times New Roman", serif;
+}
