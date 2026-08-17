@@ -41,8 +41,11 @@ const ContactPage = () => {
             </div>
           </div>
           <div className="h-full w-full"></div>
-          <div className="w-213 h-120 bg-white absolute translate-y-[-50%] top-[50%] left-[35%]">
-            <img src={VenkyImage} className="w-full h-full object-cover" />
+          <div className="w-213 h-120 bg-white absolute group overflow-hidden translate-y-[-50%] top-[50%] left-[35%]">
+            <img
+              src={VenkyImage}
+              className="w-full h-full object-cover group-hover:scale-105 duration-150"
+            />
             <p className="text-white text-xs">* shot this at a concert</p>
           </div>
         </div>
