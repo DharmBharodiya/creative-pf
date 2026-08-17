@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import VenkyImage from "../../public/images/bandContact.jpeg";
 
 const ContactPage = () => {
   let contactList = [
@@ -13,7 +14,7 @@ const ContactPage = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full h-screen bg-black relative">
+      <div className="w-full h-screen bg-black relative selection:bg-red-800 selection:text-white">
         <div className="w-full h-screen grid grid-cols-[2.5fr_3.5fr] absolute inset-0">
           {/* the back div */}
           <div className="bg-black"></div>
@@ -40,7 +41,10 @@ const ContactPage = () => {
             </div>
           </div>
           <div className="h-full w-full"></div>
-          <div className="w-213 h-120 bg-white absolute translate-y-[-50%] top-[50%] left-[35%]"></div>
+          <div className="w-213 h-120 bg-white absolute translate-y-[-50%] top-[50%] left-[35%]">
+            <img src={VenkyImage} className="w-full h-full object-cover" />
+            <p className="text-white text-xs">* shot this at a concert</p>
+          </div>
         </div>
       </div>
       <Footer />
