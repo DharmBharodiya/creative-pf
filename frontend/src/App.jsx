@@ -5,6 +5,7 @@ import ContentPage from "./pages/ContentPage";
 import AboutMePage from "./pages/AboutMePage";
 import ContactPage from "./pages/ContactPage";
 import Philosophy from "./pages/Philosophy";
+import Graphics from "./pages/Graphics";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -41,6 +42,7 @@ function App() {
         <Route path="/about" element={<AboutMePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/philosophy" element={<Philosophy />} />
+        <Route path="/graphics" element={<Graphics />} />
       </Routes>
     </>
   );
