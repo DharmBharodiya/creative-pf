@@ -4,7 +4,7 @@ import VenkyImage from "../../public/images/bandContact.jpeg";
 
 const ContactPage = () => {
   let contactList = [
-    "+ 201-736-7419",
+    "+1 201-736-7419",
     "dharmbharodiya@gmail.com",
     "instagram - Art: @dharm_bharodiya",
     "instagram - Photography:@456dharm",
