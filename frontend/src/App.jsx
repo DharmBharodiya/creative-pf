@@ -6,6 +6,7 @@ import AboutMePage from "./pages/AboutMePage";
 import ContactPage from "./pages/ContactPage";
 import Philosophy from "./pages/Philosophy";
 import Graphics from "./pages/Graphics";
+import WorkEx from "./pages/WorkEx";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -43,6 +44,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/philosophy" element={<Philosophy />} />
         <Route path="/graphics" element={<Graphics />} />
+        <Route path="/workex" element={<WorkEx />} />
       </Routes>
     </>
   );
