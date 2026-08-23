@@ -9,6 +9,7 @@ import Graphics from "./pages/Graphics";
 import WorkEx from "./pages/WorkEx";
 import Concert from "./pages/Concert";
 import Photographs from "./pages/Photographs";
+import PhotoGrid from "./pages/PhotoGrid";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -49,6 +50,7 @@ function App() {
         <Route path="/workex" element={<WorkEx />} />
         <Route path="/concert" element={<Concert />} />
         <Route path="/photographs" element={<Photographs />} />
+        <Route path="/photogrid" element={<PhotoGrid />} />
       </Routes>
     </>
   );
