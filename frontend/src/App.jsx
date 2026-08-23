@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import HomePage from "./pages/HomePage";
 import ContentPage from "./pages/ContentPage";
 import AboutMePage from "./pages/AboutMePage";
@@ -14,6 +13,10 @@ import Video from "./pages/Video";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
+  const [activeSection, setActiveSection] = useState(0);
+  const scrollRef = useRef(null);
+  const targetScroll = useRef(0);
+  const animationFrame = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -22,6 +25,107 @@ function App() {
     window.addEventListener("resize", checkMobile);
 
     return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    targetScroll.current = scrollContainer.scrollLeft;
+
+    const clampScroll = (value) =>
+      Math.max(
+        0,
+        Math.min(
+          value,
+          scrollContainer.scrollWidth - scrollContainer.clientWidth,
+        ),
+      );
+
+    const animateScroll = () => {
+      const distance = targetScroll.current - scrollContainer.scrollLeft;
+
+      if (Math.abs(distance) < 0.5) {
+        scrollContainer.scrollLeft = targetScroll.current;
+        animationFrame.current = null;
+        return;
+      }
+
+      scrollContainer.scrollLeft += distance * 0.12;
+      animationFrame.current = requestAnimationFrame(animateScroll);
+    };
+
+    const handleWheel = (event) => {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+
+      event.preventDefault();
+      const multiplier = event.deltaMode === 1 ? 16 : 1;
+      targetScroll.current = clampScroll(
+        targetScroll.current + event.deltaY * multiplier * 1.35,
+      );
+
+      if (!animationFrame.current) {
+        animationFrame.current = requestAnimationFrame(animateScroll);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+
+      event.preventDefault();
+      const direction = event.key === "ArrowRight" ? 1 : -1;
+      targetScroll.current = clampScroll(
+        targetScroll.current + direction * scrollContainer.clientWidth,
+      );
+
+      if (!animationFrame.current) {
+        animationFrame.current = requestAnimationFrame(animateScroll);
+      }
+    };
+
+    const handleScroll = () => {
+      if (!animationFrame.current)
+        targetScroll.current = scrollContainer.scrollLeft;
+    };
+
+    scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
+    scrollContainer.addEventListener("keydown", handleKeyDown);
+    scrollContainer.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      scrollContainer.removeEventListener("wheel", handleWheel);
+      scrollContainer.removeEventListener("keydown", handleKeyDown);
+      scrollContainer.removeEventListener("scroll", handleScroll);
+      if (animationFrame.current) cancelAnimationFrame(animationFrame.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const sections = scrollContainer.querySelectorAll(".horizontal-page");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleSection) {
+          const nextIndex = [...sections].indexOf(visibleSection.target);
+          setActiveSection(nextIndex);
+          visibleSection.target.classList.add("is-active");
+          sections.forEach((section) => {
+            if (section !== visibleSection.target)
+              section.classList.remove("is-active");
+          });
+        }
+      },
+      { root: scrollContainer, threshold: [0.5, 0.75, 0.99] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   if (isMobile) {
@@ -39,22 +143,41 @@ function App() {
     );
   }
 
+  const sections = [
+    ["home", HomePage],
+    ["content", ContentPage],
+    ["about", AboutMePage],
+    ["philosophy", Philosophy],
+    ["work", WorkEx],
+    ["concert", Concert],
+    ["photographs", Photographs],
+    ["photogrid", PhotoGrid],
+    ["video", Video],
+    ["graphics", Graphics],
+    ["contact", ContactPage],
+  ];
+
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/content" element={<ContentPage />} />
-        <Route path="/about" element={<AboutMePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/philosophy" element={<Philosophy />} />
-        <Route path="/graphics" element={<Graphics />} />
-        <Route path="/workex" element={<WorkEx />} />
-        <Route path="/concert" element={<Concert />} />
-        <Route path="/photographs" element={<Photographs />} />
-        <Route path="/photogrid" element={<PhotoGrid />} />
-        <Route path="/video" element={<Video />} />
-      </Routes>
-    </>
+    <main
+      ref={scrollRef}
+      className="horizontal-scroll"
+      tabIndex="0"
+      aria-label="Portfolio sections"
+    >
+      <div
+        className="scroll-progress"
+        style={{
+          transform: `scaleX(${(activeSection + 1) / sections.length})`,
+        }}
+      />
+      <div className="horizontal-scroll-track">
+        {sections.map(([id, Page]) => (
+          <section key={id} id={id} className="horizontal-page">
+            <Page />
+          </section>
+        ))}
+      </div>
+    </main>
   );
 }
 

@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div className="w-screen h-screen flex justify-center items-center bg-gray-950">
+      <div className="w-screen h-screen flex justify-center items-center bg-black">
         <PhotoComp />
         <h1 className="text-7xl relative left-[-10%] z-100000 text-red-800 font-medium font-times [-webkit-text-stroke:1px_black] scale-195">
           <h1 className="relative">
