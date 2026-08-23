@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ContentPage from "./pages/ContentPage";
 import AboutMePage from "./pages/AboutMePage";
@@ -17,6 +19,7 @@ function App() {
   const scrollRef = useRef(null);
   const targetScroll = useRef(0);
   const animationFrame = useRef(null);
+  const scrollActivityTimeout = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -51,7 +54,7 @@ function App() {
         return;
       }
 
-      scrollContainer.scrollLeft += distance * 0.12;
+      scrollContainer.scrollLeft += distance * 0.22;
       animationFrame.current = requestAnimationFrame(animateScroll);
     };
 
@@ -83,20 +86,46 @@ function App() {
       }
     };
 
+    const handleAnchorClick = (event) => {
+      const link = event.target.closest("a[href^='#']");
+      if (!link) return;
+
+      const target = document.getElementById(
+        link.getAttribute("href").slice(1),
+      );
+      if (!target || !scrollContainer.contains(target)) return;
+
+      event.preventDefault();
+      targetScroll.current = clampScroll(target.offsetLeft);
+      if (!animationFrame.current) {
+        animationFrame.current = requestAnimationFrame(animateScroll);
+      }
+      window.history.replaceState(null, "", link.getAttribute("href"));
+    };
+
     const handleScroll = () => {
       if (!animationFrame.current)
         targetScroll.current = scrollContainer.scrollLeft;
+
+      scrollContainer.classList.add("is-scrolling");
+      clearTimeout(scrollActivityTimeout.current);
+      scrollActivityTimeout.current = setTimeout(() => {
+        scrollContainer.classList.remove("is-scrolling");
+      }, 650);
     };
 
     scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
     scrollContainer.addEventListener("keydown", handleKeyDown);
     scrollContainer.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("click", handleAnchorClick);
 
     return () => {
       scrollContainer.removeEventListener("wheel", handleWheel);
       scrollContainer.removeEventListener("keydown", handleKeyDown);
       scrollContainer.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleAnchorClick);
       if (animationFrame.current) cancelAnimationFrame(animationFrame.current);
+      clearTimeout(scrollActivityTimeout.current);
     };
   }, []);
 
@@ -158,26 +187,30 @@ function App() {
   ];
 
   return (
-    <main
-      ref={scrollRef}
-      className="horizontal-scroll"
-      tabIndex="0"
-      aria-label="Portfolio sections"
-    >
-      <div
-        className="scroll-progress"
-        style={{
-          transform: `scaleX(${(activeSection + 1) / sections.length})`,
-        }}
-      />
-      <div className="horizontal-scroll-track">
-        {sections.map(([id, Page]) => (
-          <section key={id} id={id} className="horizontal-page">
-            <Page />
-          </section>
-        ))}
-      </div>
-    </main>
+    <>
+      <Navbar />
+      <main
+        ref={scrollRef}
+        className="horizontal-scroll"
+        tabIndex="0"
+        aria-label="Portfolio sections"
+      >
+        <div
+          className="scroll-progress"
+          style={{
+            transform: `scaleX(${(activeSection + 1) / sections.length})`,
+          }}
+        />
+        <div className="horizontal-scroll-track selection:bg-red-800 selection:text-white">
+          {sections.map(([id, Page]) => (
+            <section key={id} id={id} className="horizontal-page">
+              <Page />
+            </section>
+          ))}
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
 

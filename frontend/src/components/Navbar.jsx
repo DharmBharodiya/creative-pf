@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const Navbar = () => {
   const list = ["About", "Gallery", "Contact"];
   const links = ["#about", "#photographs", "#contact"];
@@ -7,9 +5,9 @@ const Navbar = () => {
   return (
     <nav className="bg-transparent flex justify-between fixed items-center h-15  selection:bg-red-800 selection:text-white w-full z-2000000">
       <div className="ml-10">
-        <Link to={"#home"}>
+        <a href="#home">
           <h1 className="font-quicksand text-white">Dharm Bharodiya</h1>
-        </Link>
+        </a>
       </div>
       <div className="flex mr-10 text-white">
         {list.map((li, idx) => (

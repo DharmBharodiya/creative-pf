@@ -4,15 +4,15 @@ import image1 from "../../public/images/bestpaintingever.jpg";
 
 const ContentPage = () => {
   let contentList = [
-    ["about me", "01"],
-    ["creative", "02"],
-    ["experience", "03"],
-    ["photographs", "04"],
-    ["visual stories", "05"],
-    ["collections", "06"],
-    ["cinematography", "07"],
-    ["graphic design", "08"],
-    ["contact", "09"],
+    ["about me", "01", "about"],
+    ["creative", "02", "philosophy"],
+    ["experience", "03", "work"],
+    ["photographs", "04", "photographs"],
+    ["collections", "05", "photogrid"],
+    ["concert photography", "06", "concert"],
+    ["cinematography", "07", "video"],
+    ["graphic design", "08", "graphics"],
+    ["contact", "09", "contact"],
   ];
 
   return (
@@ -31,17 +31,18 @@ const ContentPage = () => {
             </h1>
           </div>
           <div className="w-full h-full flex flex-col justify-center items-center">
-            {contentList.map(([name, number]) => (
-              <div
+            {contentList.map(([name, number, sectionId]) => (
+              <a
                 key={number}
-                className="text-white w-full text-4xl hover:text-5xl cursor-pointer transition-all duration-200"
+                href={`#${sectionId}`}
+                className="text-white block w-full text-4xl hover:text-5xl cursor-pointer transition-all duration-200"
               >
                 <div className="flex justify-between mb-4">
                   <span>{name.toUpperCase()}</span>
                   <span>{number}</span>
                 </div>
                 <div className="w-full h-0.5 bg-white"></div>
-              </div>
+              </a>
             ))}
           </div>
           <div className="w-full h-full flex justify-center items-center flex-col hover:scale-105 hover:cursor-pointer transition-all duration-350">
