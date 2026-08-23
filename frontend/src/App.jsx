@@ -8,6 +8,7 @@ import Philosophy from "./pages/Philosophy";
 import Graphics from "./pages/Graphics";
 import WorkEx from "./pages/WorkEx";
 import Concert from "./pages/Concert";
+import Photographs from "./pages/Photographs";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -47,6 +48,7 @@ function App() {
         <Route path="/graphics" element={<Graphics />} />
         <Route path="/workex" element={<WorkEx />} />
         <Route path="/concert" element={<Concert />} />
+        <Route path="/photographs" element={<Photographs />} />
       </Routes>
     </>
   );

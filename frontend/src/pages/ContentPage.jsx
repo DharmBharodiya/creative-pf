@@ -44,7 +44,7 @@ const ContentPage = () => {
               </div>
             ))}
           </div>
-          <div className="w-full h-full flex justify-center items-center flex-col hover:scale-105 hover:cursor-pointer transition-all duration-150">
+          <div className="w-full h-full flex justify-center items-center flex-col hover:scale-105 hover:cursor-pointer transition-all duration-350">
             {/* photo */}
             <div className="w-80 h-96 bg-white">
               <img src={image1} className="w-full h-full object-cover" />

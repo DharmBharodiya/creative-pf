@@ -49,7 +49,7 @@ const AboutMePage = () => {
               <div className="w-96 h-120 bg-red-900 flex justify-center items-center">
                 <img
                   src={sunsetImage}
-                  className="w-80 h-100 object-cover hover:w-96 hover:h-120 transition-all duration-100 cursor-pointer"
+                  className="w-80 h-100 object-cover hover:w-96 hover:h-120 transition-all duration-400 cursor-pointer"
                 />
               </div>
             </div>

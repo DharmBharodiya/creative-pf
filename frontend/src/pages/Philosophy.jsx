@@ -20,17 +20,17 @@ const Philosophy = () => {
               visuals, but through meaning and intent.{" "}
             </p>
           </div>
-          <div className="bg-black w-full max-h-50 overflow-hidden grid grid-cols-[8fr_3fr]">
+          <div className="bg-black w-full max-h-50 overflow-hidden grid grid-cols-[8fr_2.6fr]">
             <div className="bg-amber-400 overflow-hidden">
               <img
                 src={soulegs}
-                className="w-full h-full object-cover object-[center_right] hover:scale-105 cursor-pointer transition-all duration-150"
+                className="w-full h-full object-cover object-[center_right] hover:scale-105 cursor-pointer transition-all duration-350"
               />
             </div>
             <div className="bg-amber-900">
               <img
                 src={Third}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer transition-all duration-150"
+                className="w-full h-full object-cover hover:scale-105 cursor-pointer transition-all duration-350"
               />
             </div>
           </div>
@@ -45,13 +45,13 @@ const Philosophy = () => {
           <div className="bg-blue-800 w-full h-90 overflow-hidden">
             <img
               src={ahmedabad}
-              className="w-full h-full object-cover hover:scale-105 cursor-pointer transition-all duration-150"
+              className="w-full h-full object-cover hover:scale-105 cursor-pointer transition-all duration-350"
             />
           </div>
           <div className="bg-pink-400 w-full h-90 overflow-hidden">
             <img
               src={visarjan}
-              className="w-full h-full object-cover object-[50%_19.5%] hover:scale-105 cursor-pointer transition-all duration-150"
+              className="w-full h-full object-cover object-[50%_19.5%] hover:scale-105 cursor-pointer transition-all duration-350"
             />
           </div>
         </div>

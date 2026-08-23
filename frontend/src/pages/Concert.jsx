@@ -16,7 +16,7 @@ const Concert = () => {
             <div className="w-75 aspect-[9/16] bg-white overflow-hidden">
               <img
                 src={jigra}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-100 transition-all"
+                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
           </div>
@@ -24,13 +24,13 @@ const Concert = () => {
             <div className="w-75 aspect-[9/16] bg-amber-500 overflow-hidden">
               <img
                 src={jigra2}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-100 transition-all"
+                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
             <div className="w-75 aspect-[9/16] bg-blue-500 overflow-hidden">
               <img
                 src={sanam}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-100 transition-all"
+                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
           </div>
