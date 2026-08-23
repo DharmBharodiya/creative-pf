@@ -10,6 +10,7 @@ import WorkEx from "./pages/WorkEx";
 import Concert from "./pages/Concert";
 import Photographs from "./pages/Photographs";
 import PhotoGrid from "./pages/PhotoGrid";
+import Video from "./pages/Video";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -51,6 +52,7 @@ function App() {
         <Route path="/concert" element={<Concert />} />
         <Route path="/photographs" element={<Photographs />} />
         <Route path="/photogrid" element={<PhotoGrid />} />
+        <Route path="/video" element={<Video />} />
       </Routes>
     </>
   );
