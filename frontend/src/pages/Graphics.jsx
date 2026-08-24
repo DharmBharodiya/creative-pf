@@ -1,12 +1,12 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import letter from "../../public/images/letter0.png";
-import panic from "../../public/images/panic.webp";
-import wearmask from "../../public/images/wearmask.png";
-import invite from "../../public/images/invite.jpeg";
-import euphoria from "../../public/images/euphoria.png";
-import redman from "../../public/images/fg.jpg";
-import architecture from "../../public/images/architecture.png";
+import letter from "../assets/letter0.png";
+import panic from "../assets/panic.webp";
+import wearmask from "../assets/wearmask.png";
+import invite from "../assets/invite.jpeg";
+import euphoria from "../assets/euphoria.png";
+import redman from "../assets/fg.jpg";
+import architecture from "../assets/architecture.png";
 
 const Graphics = () => {
   return (

@@ -1,9 +1,9 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import eyeSketch from "../../public/images/eye1.jpeg";
-import makingoffairy from "../../public/images/TheMakingOfAFairy.jpg";
-import balloons from "../../public/images/balloons.JPG";
-import trainfeet from "../../public/images/trainfeet.jpg";
+import eyeSketch from "../assets/eye1.jpeg";
+import makingoffairy from "../assets/TheMakingOfAFairy.jpg";
+import balloons from "../assets/balloons.JPG";
+import trainfeet from "../assets/trainfeet.jpg";
 
 const PhotoGrid = () => {
   return (

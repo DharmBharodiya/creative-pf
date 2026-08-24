@@ -1,6 +1,6 @@
-import image1 from "../../../public/images/sketch.jpg";
-import image2 from "../../../public/images/image001.jpg";
-import image3 from "../../../public/images/3.jpg";
+import image1 from "../../assets/sketch.jpg";
+import image2 from "../../assets/image001.jpg";
+import image3 from "../../assets/3.jpg";
 
 const PhotoComp = () => {
   return (

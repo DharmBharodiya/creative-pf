@@ -1,9 +1,9 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import adm from "../../public/images/admWithoutDhrm.jpg";
-import image004 from "../../public/images/image004.jpg";
-import creativeAnimals from "../../public/images/creativeAnimals.jpg";
-import daman1 from "../../public/images/damanframe1.jpg";
+import adm from "../assets/admWIthoutDhrm.jpg";
+import image004 from "../assets/image004.jpg";
+import creativeAnimals from "../assets/creativeAnimals.jpg";
+import daman1 from "../assets/damanframe1.jpg";
 
 const CollectionGrid = () => {
   return (

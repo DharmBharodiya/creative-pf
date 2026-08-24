@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import VenkyImage from "../../public/images/bandContact.jpeg";
+import VenkyImage from "../assets/bandContact.jpeg";
 
 const ContactPage = () => {
   let contactList = [

@@ -1,9 +1,9 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import cig1 from "../../public/images/cig1.JPG";
-import bdaypic from "../../public/images/bdaypic.jpeg";
-import leo from "../../public/images/leo11.png";
-import onelayerart from "../../public/images/oneLayerArtManStanding.jpg";
+import cig1 from "../assets/cig1.JPG";
+import bdaypic from "../assets/bdaypic.jpeg";
+import leo from "../assets/leo11.png";
+import onelayerart from "../assets/oneLayerArtManStanding.jpg";
 
 const PaintingGrid = () => {
   return (

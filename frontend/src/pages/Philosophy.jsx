@@ -1,9 +1,9 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Third from "../../public/images/third.jpg";
-import visarjan from "../../public/images/visarjanframe1.jpg";
-import soulegs from "../../public/images/soulegs.jpeg";
-import ahmedabad from "../../public/images/ahmdbdDiariesThumbnail.jpg";
+import Third from "../assets/third.jpg";
+import visarjan from "../assets/visarjanframe1.jpg";
+import soulegs from "../assets/soulegs.jpeg";
+import ahmedabad from "../assets/ahmdbdDiariesThumbnail.jpg";
 
 const Philosophy = () => {
   return (

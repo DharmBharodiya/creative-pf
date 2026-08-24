@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import image1 from "../../public/images/bestpaintingever.jpg";
+import image1 from "../assets/bestpaintingever.jpg";
 
 const ContentPage = () => {
   let contentList = [

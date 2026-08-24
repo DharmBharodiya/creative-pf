@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import camel from "../../public/images/camel.jpeg";
+import camel from "../assets/camel.jpeg";
 
 const WorkEx = () => {
   return (

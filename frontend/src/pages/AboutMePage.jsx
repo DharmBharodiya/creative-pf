@@ -1,7 +1,7 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import dhrmImage from "../../public/images/dharm.jpeg";
-import sunsetImage from "../../public/images/sunset01.jpg";
+import dhrmImage from "../assets/dharm.jpeg";
+import sunsetImage from "../assets/sunset01.jpg";
 
 const AboutMePage = () => {
   return (

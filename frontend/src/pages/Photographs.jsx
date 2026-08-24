@@ -1,14 +1,14 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import sunsetWalk from "../../public/images/sunsetWalk.JPG";
-import damanframe1 from "../../public/images/damanframe1.jpg";
-import damanframe2 from "../../public/images/damanframe2.jpg";
-import beachStand from "../../public/images/sunsetstand.jpg";
-import sounew from "../../public/images/sounew.PNG";
-import dwarkaguy from "../../public/images/dwarkaguy.jpg";
-import palace from "../../public/images/palace.jpg";
-import suratbridge from "../../public/images/suratbridge.jpeg";
-import nyc from "../../public/images/nyc.jpeg";
+import sunsetWalk from "../assets/sunsetwalk.JPG";
+import damanframe1 from "../assets/damanframe1.jpg";
+import damanframe2 from "../assets/damanframe2.jpg";
+import beachStand from "../assets/sunsetstand.jpg";
+import sounew from "../assets/sounew.PNG";
+import dwarkaguy from "../assets/dwarkaguy.jpg";
+import palace from "../assets/palace.jpg";
+import suratbridge from "../assets/suratbridge.jpeg";
+import nyc from "../assets/nyc.jpeg";
 
 const Photographs = () => {
   return (

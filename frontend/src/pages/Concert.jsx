@@ -1,8 +1,8 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import jigra from "../../public/images/jigra.jpeg";
-import jigra2 from "../../public/images/jigra2.jpeg";
-import sanam from "../../public/images/sanam.jpeg";
+import jigra from "../assets/jigra.jpeg";
+import jigra2 from "../assets/jigra2.jpeg";
+import sanam from "../assets/sanam.jpeg";
 
 const Concert = () => {
   return (
