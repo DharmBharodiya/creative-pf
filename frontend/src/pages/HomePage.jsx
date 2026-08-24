@@ -16,6 +16,9 @@ const HomePage = () => {
             <span className="font-sloop text-9xl">P</span>ortfolio
           </h1>
         </h1>
+        <div className="absolute bottom-40 opacity-50">
+          <h1 className="text-white">please scroll horizontally ➔</h1>
+        </div>
       </div>
       <Footer></Footer>
     </>

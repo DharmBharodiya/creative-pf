@@ -7,7 +7,7 @@ const WorkEx = () => {
     <>
       <Navbar />
       <div className="w-full h-screen bg-black text-red-800 grid grid-cols-[2.5fr_1.5fr] px-10 justify-center items-center">
-        <div className="w-220 h-auto flex flex-col justify-center items-start pt-10">
+        <div className="ml-20 w-220 h-auto flex flex-col justify-center items-start pt-10">
           {/* main title */}
           <div className="flex justify-start items-center w-full gap-6 tracking-tight">
             <h1 className="font-sloop text-8xl">

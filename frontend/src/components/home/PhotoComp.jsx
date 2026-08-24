@@ -5,6 +5,9 @@ import image3 from "../../../public/images/3.jpg";
 const PhotoComp = () => {
   return (
     <div className="relative -top-60 group transition-all duration-200">
+      <div className="bg-blue-500 rounded-full px-4 py-1 font-medium text-white absolute z-1000000 text-nowrap top-5 -left-10 group-hover:opacity-0 opacity-100 duration-300 transition-all">
+        <p>hover me!</p>
+      </div>
       <div className="w-48 h-60 bg-white absolute hover:scale-105 group-hover:10000 hover:z-150000 group-hover:rotate-[-15deg] transition-all duration-200 z-1000 group-hover:cursor-pointer">
         <img src={image1} alt="" />
       </div>

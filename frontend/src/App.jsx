@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { animate } from "framer-motion";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
@@ -12,17 +13,20 @@ import Concert from "./pages/Concert";
 import Photographs from "./pages/Photographs";
 import PhotoGrid from "./pages/PhotoGrid";
 import Video from "./pages/Video";
+import PaintingGrid from "./pages/PaintingGrid";
+import CollectionGrid from "./pages/CollectionGrid";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
   const scrollRef = useRef(null);
   const targetScroll = useRef(0);
-  const animationFrame = useRef(null);
+  const scrollAnimation = useRef(null);
+  const scrollEase = useRef(0.22);
   const scrollActivityTimeout = useRef(null);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
 
     checkMobile();
     window.addEventListener("resize", checkMobile);
@@ -46,47 +50,52 @@ function App() {
       );
 
     const animateScroll = () => {
-      const distance = targetScroll.current - scrollContainer.scrollLeft;
-
-      if (Math.abs(distance) < 0.5) {
-        scrollContainer.scrollLeft = targetScroll.current;
-        animationFrame.current = null;
-        return;
-      }
-
-      scrollContainer.scrollLeft += distance * 0.22;
-      animationFrame.current = requestAnimationFrame(animateScroll);
+      scrollAnimation.current?.stop();
+      scrollAnimation.current = animate(
+        scrollContainer.scrollLeft,
+        targetScroll.current,
+        {
+          duration: scrollEase.current === 0.14 ? 0.8 : 0.65,
+          ease: [0.22, 1, 0.36, 1],
+          onUpdate: (value) => {
+            scrollContainer.scrollLeft = value;
+          },
+          onComplete: () => {
+            scrollAnimation.current = null;
+          },
+        },
+      );
     };
 
     const handleWheel = (event) => {
       if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
 
       event.preventDefault();
+      scrollEase.current = 0.22;
       const multiplier = event.deltaMode === 1 ? 16 : 1;
       targetScroll.current = clampScroll(
         targetScroll.current + event.deltaY * multiplier * 1.35,
       );
 
-      if (!animationFrame.current) {
-        animationFrame.current = requestAnimationFrame(animateScroll);
-      }
+      animateScroll();
     };
 
     const handleKeyDown = (event) => {
       if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
 
       event.preventDefault();
+      scrollEase.current = 0.18;
       const direction = event.key === "ArrowRight" ? 1 : -1;
       targetScroll.current = clampScroll(
         targetScroll.current + direction * scrollContainer.clientWidth,
       );
 
-      if (!animationFrame.current) {
-        animationFrame.current = requestAnimationFrame(animateScroll);
-      }
+      animateScroll();
     };
 
     const handleAnchorClick = (event) => {
+      if (!(event.target instanceof Element)) return;
+
       const link = event.target.closest("a[href^='#']");
       if (!link) return;
 
@@ -96,15 +105,15 @@ function App() {
       if (!target || !scrollContainer.contains(target)) return;
 
       event.preventDefault();
-      targetScroll.current = clampScroll(target.offsetLeft);
-      if (!animationFrame.current) {
-        animationFrame.current = requestAnimationFrame(animateScroll);
-      }
+      scrollEase.current = 0.14;
+      const targetPosition = target.offsetLeft;
+      targetScroll.current = clampScroll(targetPosition);
+      animateScroll();
       window.history.replaceState(null, "", link.getAttribute("href"));
     };
 
     const handleScroll = () => {
-      if (!animationFrame.current)
+      if (!scrollAnimation.current)
         targetScroll.current = scrollContainer.scrollLeft;
 
       scrollContainer.classList.add("is-scrolling");
@@ -117,14 +126,14 @@ function App() {
     scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
     scrollContainer.addEventListener("keydown", handleKeyDown);
     scrollContainer.addEventListener("scroll", handleScroll, { passive: true });
-    document.addEventListener("click", handleAnchorClick);
+    document.addEventListener("click", handleAnchorClick, true);
 
     return () => {
       scrollContainer.removeEventListener("wheel", handleWheel);
       scrollContainer.removeEventListener("keydown", handleKeyDown);
       scrollContainer.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("click", handleAnchorClick);
-      if (animationFrame.current) cancelAnimationFrame(animationFrame.current);
+      document.removeEventListener("click", handleAnchorClick, true);
+      scrollAnimation.current?.stop();
       clearTimeout(scrollActivityTimeout.current);
     };
   }, []);
@@ -181,8 +190,10 @@ function App() {
     ["concert", Concert],
     ["photographs", Photographs],
     ["photogrid", PhotoGrid],
+    ["collectiongrid", CollectionGrid],
     ["video", Video],
     ["graphics", Graphics],
+    ["paintings", PaintingGrid],
     ["contact", ContactPage],
   ];
 

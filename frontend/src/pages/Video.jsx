@@ -13,24 +13,42 @@ const Video = () => {
         <div className="grid grid-cols-2 max-h-screen gap-3 ml-30">
           <div className="h-full flex flex-col justify-center items-center">
             <div className="w-75 aspect-[9/16] bg-white overflow-hidden">
-              <img
-                src={thumb2}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
-              />
+              <a
+                href="https://www.instagram.com/reel/DcUVUPZOm-_/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA=="
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={thumb2}
+                  className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
+                />
+              </a>
             </div>
           </div>
           <div className="w-full  max-h-screen h-full flex flex-col justify-center items-center gap-15">
             <div className="w-75 aspect-[9/16] bg-amber-500 overflow-hidden">
-              <img
-                src={thumb1}
-                className="w-full h-full object-cover object-top scale-[1.2] origin-top hover:scale-125 cursor-pointer duration-350 transition-all"
-              />
+              <a
+                href="https://www.instagram.com/reel/DbuBNqAuSJD/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA=="
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={thumb1}
+                  className="w-full h-full object-cover object-top scale-[1.2] origin-top hover:scale-125 cursor-pointer duration-350 transition-all"
+                />
+              </a>
             </div>
             <div className="w-75 aspect-[9/16] bg-blue-500 overflow-hidden">
-              <img
-                src={thumb3}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
-              />
+              <a
+                href="https://www.instagram.com/reel/DO3tTyYDAx4/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA=="
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={thumb3}
+                  className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -63,6 +81,9 @@ const Video = () => {
               Some of my videos have reached 22.5M+ views on Instagram. All my
               videos are available to view on my instagram pages... → More of my
               videos can be found on Instagram: @dharm_bharodiya · @456dharm
+            </p>
+            <p className="pb-6 text-blue-500">
+              *click on any image to watch the video 😃
             </p>
           </div>
         </div>
