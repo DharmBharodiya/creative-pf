@@ -169,13 +169,34 @@ function App() {
   if (isMobile) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-black px-6 text-center text-white">
-        <div className="max-w-md">
-          <h1 className="mb-4 font-sloop text-4xl text-red-700">
+        <div className="max-w-md flex flex-col justify-center items-center">
+          <h1 className="mb-4 font-quicksand text-3xl text-red-700">
             Mobile version under process.
           </h1>
           <p className="text-lg">
-            Please try opening it through a desktop or laptop.
+            Please try opening it through a desktop or laptop. Thank you.
           </p>
+          {/* <a href="">
+            <h1 className="bg-red-600 hover:bg-red-800 cursor-pointer px-4 py-1 rounded-md w-fit mt-5">
+              visit this instead
+            </h1>
+          </a> */}
+          <a
+            href="https://drive.google.com/file/d/1KT_FpX49OhDedFfxHmiZ_dyuXG0xggqx/view?usp=sharing"
+            target="_blank"
+          >
+            <h1 className="bg-red-600 px-4 py-1 rounded-md w-fit mt-5 cursor-pointer hover:bg-red-900">
+              pdf version of this
+            </h1>
+          </a>
+          <div className="flex flex-col gap-3 mt-4">
+            <a href="https://www.instagram.com/dharm_bharodiya" target="_blank">
+              01. instagram(art)
+            </a>
+            <a href="https://www.instagram.com/456dharm" target="_blank">
+              02. instagram(photo)
+            </a>
+          </div>
         </div>
       </div>
     );
