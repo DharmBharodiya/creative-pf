@@ -4,11 +4,23 @@ import VenkyImage from "../../public/images/bandContact.jpeg";
 
 const ContactPage = () => {
   let contactList = [
-    "+1 201-736-7419",
-    "dharmbharodiya@gmail.com",
-    "instagram - Art: @dharm_bharodiya",
-    "instagram - Photography:@456dharm",
-    "https://dharmpf.vercel.app",
+    { label: "+1 201-736-7419", href: "tel:+12017367419" },
+    {
+      label: "dharmbharodiya@gmail.com",
+      href: "mailto:dharmbharodiya@gmail.com",
+    },
+    {
+      label: "instagram - Art: @dharm_bharodiya",
+      href: "https://www.instagram.com/dharm_bharodiya/",
+    },
+    {
+      label: "instagram - Photography:@456dharm",
+      href: "https://www.instagram.com/456dharm/",
+    },
+    {
+      label: "https://dharmpf.vercel.app",
+      href: "https://dharmpf.vercel.app",
+    },
   ];
 
   return (
@@ -34,8 +46,16 @@ const ContactPage = () => {
             <div className="w-auto h-auto flex mt-10">
               <div className="h-auto w-0.5 mr-8 bg-white"></div>
               <div className="text-white">
-                {contactList.map((contact, idxx) => (
-                  <p key={idxx}>{contact}</p>
+                {contactList.map(({ label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noreferrer" : undefined}
+                    className="block cursor-pointer hover:text-red-800"
+                  >
+                    {label}
+                  </a>
                 ))}
               </div>
             </div>
