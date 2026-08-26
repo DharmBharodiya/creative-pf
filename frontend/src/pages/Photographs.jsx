@@ -54,7 +54,7 @@ const Photographs = () => {
           <div className="bg-amber-100 overflow-hidden">
             <img
               src={sounew}
-              className="w-full h-22 lg:h-full object-cover object-[50%_70%] hover:cursor-pointer lg:scale-122 lg:hover:scale-125 transition-all duration-150    "
+              className="w-full h-22 lg:h-full object-cover object-[50%_70%] hover:cursor-pointer scale-122 lg:hover:scale-125 transition-all duration-150    "
             />
           </div>
         </div>

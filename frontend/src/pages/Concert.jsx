@@ -11,7 +11,7 @@ const Concert = () => {
 
       <div className="w-full h-full lg:max-h-screen bg-black grid grid-cols-1 lg:grid-cols-[2.5fr_2fr] overflow-hidden">
         {/* left side */}
-        <div className="relative w-full tracking-tight text-white">
+        <div className="block lg:hidden relative w-full tracking-tight text-white">
           <h1 className="font-sloop text-5xl lg:text-8xl absolute top-30 left-17 lg:left-24">
             C
             <span className="font-times text-3xl lg:text-6xl tracking-tight">
