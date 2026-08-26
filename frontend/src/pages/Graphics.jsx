@@ -14,15 +14,15 @@ const Graphics = () => {
       <Navbar />
       <div className="w-full h-screen overflow-hidden bg-black flex flex-col selection:bg-red-800 selection:text-white">
         <div className="text-red-800 flex w-full justify-center items-center gap-4 pt-16 pb-4 flex-row">
-          <h1 className="font-sloop text-9xl">
-            G<span className="font-times text-7xl">raphic</span>
+          <h1 className="font-sloop text-6xl lg:text-9xl">
+            G<span className="font-times text-3xl lg:text-7xl">raphic</span>
           </h1>
-          <h1 className="font-sloop text-9xl">
-            D<span className="font-times text-7xl">esign</span>
+          <h1 className="font-sloop text-6xl lg:text-9xl">
+            D<span className="font-times text-3xl lg:text-7xl">esign</span>
           </h1>
         </div>
-        <div className="text-white font-quicksand text-sm flex justify-between items-center w-full px-10">
-          <p className="w-70">
+        <div className="text-white font-quicksand text-xs lg:text-sm flex justify-between items-center w-full px-10">
+          <p className="w-60 lg:w-70">
             A collection of graphic experiments, event designs, and visual work
             created for organizations and personal projects.
           </p>
@@ -32,7 +32,7 @@ const Graphics = () => {
           </p>
         </div>
         {/*  lower deck */}
-        <div className="w-full flex-1 min-h-0 bg-red-500 mt-8 grid grid-cols-3">
+        <div className="w-full flex-1 min-h-0 bg-red-500 mt-8 grid grid-cols-1 lg:grid-cols-3">
           <div className="w-full min-w-0 min-h-0 h-full bg-amber-500 overflow-hidden">
             <img
               src={panic}

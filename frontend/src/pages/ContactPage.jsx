@@ -27,12 +27,12 @@ const ContactPage = () => {
     <>
       <Navbar />
       <div className="w-full h-screen bg-black relative selection:bg-red-800 selection:text-white">
-        <div className="w-full h-screen grid grid-cols-[2.5fr_3.5fr] absolute inset-0">
+        <div className="w-full h-screen grid grid-cols-1 lg:grid-cols-[2.5fr_3.5fr] absolute inset-0">
           {/* the back div */}
           <div className="bg-black"></div>
           <div className="bg-red-900"></div>
         </div>
-        <div className="w-full h-screen grid grid-cols-[3fr_4fr] absolute inset-0">
+        <div className="w-full h-screen grid grid-cols-1 lg:grid-cols-[3fr_4fr] absolute inset-0">
           {/* the main content div */}
           <div className="h-full w-full flex justify-center items-center flex-col">
             <div>
@@ -61,7 +61,7 @@ const ContactPage = () => {
             </div>
           </div>
           <div className="h-full w-full"></div>
-          <div className="w-213 h-120 bg-white absolute group overflow-hidden translate-y-[-50%] top-[50%] left-[35%]">
+          <div className="w-100 lg:w-213 aspect-[16/9] bg-white absolute group overflow-hidden lg:translate-x-[0] lg:translate-y-[-50%] top-[47%] translate-x-[-50%] left-[50%] lg:top-[50%] lg:left-[35%]">
             <img
               src={VenkyImage}
               className="w-full h-full object-cover group-hover:scale-105 duration-350"

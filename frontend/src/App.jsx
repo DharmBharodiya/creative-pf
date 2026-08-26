@@ -17,48 +17,77 @@ import PaintingGrid from "./pages/PaintingGrid";
 import CollectionGrid from "./pages/CollectionGrid";
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(min-width: 768px)").matches
+      : true,
+  );
   const scrollRef = useRef(null);
   const targetScroll = useRef(0);
   const scrollAnimation = useRef(null);
   const scrollEase = useRef(0.22);
   const scrollActivityTimeout = useRef(null);
 
+  // useEffect(() => {
+  //   const checkMobile = () => setIsMobile(window.innerWidth <= 1024);
+
+  //   checkMobile();
+  //   window.addEventListener("resize", checkMobile);
+
+  //   return () => window.removeEventListener("resize", checkMobile);
+  // }, []);
+
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+    const handleViewportChange = (event) => {
+      setIsDesktop(event.matches);
+    };
 
-    return () => window.removeEventListener("resize", checkMobile);
+    setIsDesktop(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleViewportChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleViewportChange);
+    };
   }, []);
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
-    targetScroll.current = scrollContainer.scrollLeft;
+    const getScrollPosition = () =>
+      isDesktop ? scrollContainer.scrollLeft : scrollContainer.scrollTop;
+    const setScrollPosition = (value) => {
+      if (isDesktop) scrollContainer.scrollLeft = value;
+      else scrollContainer.scrollTop = value;
+    };
+
+    targetScroll.current = getScrollPosition();
 
     const clampScroll = (value) =>
       Math.max(
         0,
         Math.min(
           value,
-          scrollContainer.scrollWidth - scrollContainer.clientWidth,
+          isDesktop
+            ? scrollContainer.scrollWidth - scrollContainer.clientWidth
+            : scrollContainer.scrollHeight - scrollContainer.clientHeight,
         ),
       );
 
     const animateScroll = () => {
       scrollAnimation.current?.stop();
       scrollAnimation.current = animate(
-        scrollContainer.scrollLeft,
+        getScrollPosition(),
         targetScroll.current,
         {
           duration: scrollEase.current === 0.14 ? 0.8 : 0.65,
           ease: [0.22, 1, 0.36, 1],
           onUpdate: (value) => {
-            scrollContainer.scrollLeft = value;
+            setScrollPosition(value);
           },
           onComplete: () => {
             scrollAnimation.current = null;
@@ -68,6 +97,7 @@ function App() {
     };
 
     const handleWheel = (event) => {
+      if (!isDesktop) return;
       if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
 
       event.preventDefault();
@@ -81,6 +111,7 @@ function App() {
     };
 
     const handleKeyDown = (event) => {
+      if (!isDesktop) return;
       if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
 
       event.preventDefault();
@@ -106,15 +137,14 @@ function App() {
 
       event.preventDefault();
       scrollEase.current = 0.14;
-      const targetPosition = target.offsetLeft;
+      const targetPosition = isDesktop ? target.offsetLeft : target.offsetTop;
       targetScroll.current = clampScroll(targetPosition);
       animateScroll();
       window.history.replaceState(null, "", link.getAttribute("href"));
     };
 
     const handleScroll = () => {
-      if (!scrollAnimation.current)
-        targetScroll.current = scrollContainer.scrollLeft;
+      if (!scrollAnimation.current) targetScroll.current = getScrollPosition();
 
       scrollContainer.classList.add("is-scrolling");
       clearTimeout(scrollActivityTimeout.current);
@@ -123,20 +153,26 @@ function App() {
       }, 650);
     };
 
-    scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
-    scrollContainer.addEventListener("keydown", handleKeyDown);
+    if (isDesktop) {
+      scrollContainer.addEventListener("wheel", handleWheel, {
+        passive: false,
+      });
+      scrollContainer.addEventListener("keydown", handleKeyDown);
+    }
     scrollContainer.addEventListener("scroll", handleScroll, { passive: true });
     document.addEventListener("click", handleAnchorClick, true);
 
     return () => {
-      scrollContainer.removeEventListener("wheel", handleWheel);
-      scrollContainer.removeEventListener("keydown", handleKeyDown);
+      if (isDesktop) {
+        scrollContainer.removeEventListener("wheel", handleWheel);
+        scrollContainer.removeEventListener("keydown", handleKeyDown);
+      }
       scrollContainer.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleAnchorClick, true);
       scrollAnimation.current?.stop();
       clearTimeout(scrollActivityTimeout.current);
     };
-  }, []);
+  }, [isDesktop]);
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -166,41 +202,42 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  if (isMobile) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-black px-6 text-center text-white">
-        <div className="max-w-md flex flex-col justify-center items-center">
-          <h1 className="mb-4 font-quicksand text-3xl text-red-700">
-            Mobile version under process.
-          </h1>
-          <p className="text-lg">
-            Please try opening it through a desktop or laptop. Thank you.
-          </p>
-          {/* <a href="">
-            <h1 className="bg-red-600 hover:bg-red-800 cursor-pointer px-4 py-1 rounded-md w-fit mt-5">
-              visit this instead
-            </h1>
-          </a> */}
-          <a
-            href="https://drive.google.com/file/d/1KT_FpX49OhDedFfxHmiZ_dyuXG0xggqx/view?usp=sharing"
-            target="_blank"
-          >
-            <h1 className="bg-red-600 px-4 py-1 rounded-md w-fit mt-5 cursor-pointer hover:bg-red-900">
-              pdf version of this
-            </h1>
-          </a>
-          <div className="flex flex-col gap-3 mt-4">
-            <a href="https://www.instagram.com/dharm_bharodiya" target="_blank">
-              01. instagram(art)
-            </a>
-            <a href="https://www.instagram.com/456dharm" target="_blank">
-              02. instagram(photo)
-            </a>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // if (isMobile) {
+  //   return (
+  //     <div className="flex min-h-screen items-center justify-center bg-black px-6 text-center text-white">
+  //       <div className="max-w-md flex flex-col justify-center items-center">
+  //         <h1 className="mb-4 font-quicksand text-3xl text-red-700">
+  //           Mobile version under process.
+  //         </h1>
+  //         <p className="text-lg">
+  //           Please try opening it through a desktop or laptop. Thank you.
+  //         </p>
+  //         {/* <a href="">
+  //           <h1 className="bg-red-600 hover:bg-red-800 cursor-pointer px-4 py-1 rounded-md w-fit mt-5">
+  //             visit this instead
+  //           </h1>
+  //         </a> */}
+  //         <a
+  //           href="https://drive.google.com/file/d/1KT_FpX49OhDedFfxHmiZ_dyuXG0xggqx/view?usp=sharing"
+  //           target="_blank"
+  //         >
+  //           <h1 className="bg-red-600 px-4 py-1 rounded-md w-fit mt-5 cursor-pointer hover:bg-red-900">
+  //             pdf version of this
+  //           </h1>
+  //         </a>
+  //         <div className="flex flex-col gap-3 mt-4">
+  //           <a href="https://www.instagram.com/dharm_bharodiya" target="_blank">
+  //             01. instagram(art)
+  //           </a>
+  //           <a href="https://www.instagram.com/456dharm" target="_blank">
+  //             02. instagram(photo)
+  //           </a>
+  //         </div>
+  //         <p className="mt-10">by Dharm Bharodiya</p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   const sections = [
     ["home", HomePage],
