@@ -13,6 +13,7 @@ import Concert from "./pages/Concert";
 import Photographs from "./pages/Photographs";
 import PhotoGrid from "./pages/PhotoGrid";
 import Video from "./pages/Video";
+import VideoNew from "./pages/VideoNew";
 import PaintingGrid from "./pages/PaintingGrid";
 import CollectionGrid from "./pages/CollectionGrid";
 
@@ -250,6 +251,7 @@ function App() {
     ["photogrid", PhotoGrid],
     ["collectiongrid", CollectionGrid],
     ["video", Video],
+    // ["videonew", VideoNew],
     ["graphics", Graphics],
     ["paintings", PaintingGrid],
     ["contact", ContactPage],

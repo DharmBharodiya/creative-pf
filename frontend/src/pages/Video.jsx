@@ -39,7 +39,7 @@ const Video = () => {
               </a>
             </div>
           </div>
-          <div className="w-full h-full flex flex-col justify-center items-center lg:gap-15">
+          <div className="w-full h-full lg:max-h-screen flex flex-col justify-center items-center lg:gap-15">
             <div className="w-40 lg:w-75 aspect-[9/16] bg-amber-500 overflow-hidden">
               <a
                 href="https://www.instagram.com/reel/DbuBNqAuSJD/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA=="
