@@ -59,7 +59,7 @@ const ContentPage = () => {
             </p>
           </div>
         </div>
-        <Footer></Footer>
+        {/* <Footer /> */}
       </div>
     </>
   );
