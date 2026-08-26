@@ -36,7 +36,7 @@ const Graphics = () => {
           <div className="w-full min-w-0 min-h-0 h-full bg-amber-500 overflow-hidden">
             <img
               src={panic}
-              className="block object-cover w-full h-full hover:scale-105 cursor-pointer duration-350 transition-all"
+              className="block object-cover w-full h-full lg:hover:scale-105 cursor-pointer duration-350 transition-all"
             />
           </div>
           <div className="w-full min-w-0 min-h-0 h-full bg-green-800 grid grid-cols-3 grid-rows-3">
@@ -44,32 +44,32 @@ const Graphics = () => {
             <div className="bg-red-600 w-full h-full overflow-hidden">
               <img
                 src={redman}
-                className="block object-cover w-full h-full hover:scale-105 cursor-pointer duration-350 transition-all"
+                className="block object-cover w-full h-full lg:hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
             <div className="bg-red-800 w-full h-full overflow-hidden">
               <img
                 src={euphoria}
-                className="block scale-102 object-cover object-[50%_10%] w-full h-full hover:scale-105 cursor-pointer duration-350 transition-all"
+                className="block lg:scale-102 object-cover object-[50%_10%] w-full h-full lg:hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
             <div className="bg-yellow-400 w-full h-full overflow-hidden">
               <img
                 src={wearmask}
-                className="block object-cover w-full h-full hover:scale-105 cursor-pointer duration-350 transition-all"
+                className="block object-cover w-full h-full lg:hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
             <div className="bg-black w-full h-full"></div>
             <div className="bg-yellow-800 w-full h-full row-span-2 overflow-hidden">
               <img
                 src={architecture}
-                className="block object-cover w-full h-full hover:scale-105 cursor-pointer duration-350 transition-all"
+                className="block object-cover w-full h-full lg:hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
             <div className="bg-black w-full h-full col-span-2 overflow-hidden">
               <img
                 src={invite}
-                className="block object-cover w-full h-full object-[50%_90%] hover:scale-105 cursor-pointer duration-350 transition-all"
+                className="block object-cover w-full h-full object-[50%_90%] lg:hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
             {/* <div className="bg-purple-800 w-full h-full"></div> */}
@@ -77,7 +77,7 @@ const Graphics = () => {
           <div className="w-full min-w-0 min-h-0 h-full bg-blue-900 overflow-hidden">
             <img
               src={letter}
-              className="block object-cover w-full h-full hover:scale-105 cursor-pointer duration-350 transition-all"
+              className="block object-cover w-full h-full lg:hover:scale-105 cursor-pointer duration-350 transition-all"
             />
           </div>
         </div>

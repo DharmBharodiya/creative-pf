@@ -82,7 +82,7 @@ const WorkEx = () => {
           <div className="w-50 lg:w-96 aspect-[4/5] bg-white overflow-hidden">
             <img
               src={camel}
-              className="w-full h-full object-cover scale-110 hover:scale-115 duration-350 cursor-pointer"
+              className="w-full h-full object-cover lg:scale-110 lg:hover:scale-115 duration-350 cursor-pointer"
             />
           </div>
           <p className="text-xs opacity-0 lg:opacity-100  text-white mt-2">

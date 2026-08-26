@@ -33,13 +33,13 @@ const Philosophy = () => {
             <div className="bg-amber-400 overflow-hidden">
               <img
                 src={soulegs}
-                className="w-full h-full object-cover object-[center_right] hover:scale-105 cursor-pointer transition-all duration-350"
+                className="w-full h-full object-cover object-[center_right] lg:hover:scale-105 cursor-pointer transition-all duration-350"
               />
             </div>
             <div className="bg-amber-900">
               <img
                 src={Third}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer transition-all duration-350"
+                className="w-full h-full object-cover lg:hover:scale-105 cursor-pointer transition-all duration-350"
               />
             </div>
           </div>
@@ -54,13 +54,13 @@ const Philosophy = () => {
           <div className="bg-blue-800 w-full h-50 lg:h-90 overflow-hidden">
             <img
               src={ahmedabad}
-              className="w-full h-full object-cover hover:scale-105 cursor-pointer transition-all duration-350"
+              className="w-full h-full object-cover lg:hover:scale-105 cursor-pointer transition-all duration-350"
             />
           </div>
           <div className="bg-pink-400 w-full h-50 lg:h-90 overflow-hidden">
             <img
               src={visarjan}
-              className="w-full h-full object-cover object-[50%_19.5%] hover:scale-105 cursor-pointer transition-all duration-350"
+              className="w-full h-full object-cover object-[50%_19.5%] lg:hover:scale-105 cursor-pointer transition-all duration-350"
             />
           </div>
         </div>

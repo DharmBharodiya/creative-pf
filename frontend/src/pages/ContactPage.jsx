@@ -61,10 +61,10 @@ const ContactPage = () => {
             </div>
           </div>
           <div className="h-full w-full"></div>
-          <div className="w-100 lg:w-213 aspect-[16/9] bg-white absolute group overflow-hidden lg:translate-x-[0] lg:translate-y-[-50%] top-[47%] translate-x-[-50%] left-[50%] lg:top-[50%] lg:left-[35%]">
+          <div className="w-100 lg:w-213 aspect-[16/9] bg-white absolute group overflow-hidden lg:translate-x-[0] lg:translate-y-[-50%] top-[52%] translate-x-[-50%] left-[50%] lg:top-[50%] lg:left-[35%]">
             <img
               src={VenkyImage}
-              className="w-full h-full object-cover group-hover:scale-105 duration-350"
+              className="w-full h-full object-cover lg:group-hover:scale-105 duration-350"
             />
             <p className="text-white text-xs">* shot this at a concert</p>
           </div>

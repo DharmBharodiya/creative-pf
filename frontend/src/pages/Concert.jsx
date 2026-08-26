@@ -9,7 +9,7 @@ const Concert = () => {
     <>
       <Navbar />
 
-      <div className="w-full max-h-screen bg-black grid grid-cols-1 lg:grid-cols-[2.5fr_2fr] overflow-hidden">
+      <div className="w-full h-full lg:max-h-screen bg-black grid grid-cols-1 lg:grid-cols-[2.5fr_2fr] overflow-hidden">
         {/* left side */}
         <div className="relative w-full tracking-tight text-white">
           <h1 className="font-sloop text-5xl lg:text-8xl absolute top-30 left-17 lg:left-24">
@@ -31,7 +31,7 @@ const Concert = () => {
             <div className="w-45 lg:w-75 aspect-[9/16] bg-white overflow-hidden">
               <img
                 src={jigra}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
+                className="w-full h-full object-cover lg:hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
           </div>
@@ -39,13 +39,13 @@ const Concert = () => {
             <div className="w-45 lg:w-75 aspect-[9/16] bg-amber-500 overflow-hidden">
               <img
                 src={jigra2}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
+                className="w-full h-full object-cover lg:hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
             <div className="w-45 lg:w-75 aspect-[9/16] bg-blue-500 overflow-hidden">
               <img
                 src={sanam}
-                className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
+                className="w-full h-full object-cover lg:hover:scale-105 cursor-pointer duration-350 transition-all"
               />
             </div>
           </div>

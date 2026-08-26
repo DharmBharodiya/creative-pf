@@ -30,31 +30,31 @@ const Photographs = () => {
           <div className="bg-amber-100 overflow-hidden">
             <img
               src={sunsetWalk}
-              className="w-full h-22 lg:h-full object-cover hover:cursor-pointer hover:scale-105 transition-all duration-150    "
+              className="w-full h-22 lg:h-full object-cover hover:cursor-pointer lg:hover:scale-105 transition-all duration-150    "
             />
           </div>
           <div className="bg-amber-100 overflow-hidden">
             <img
               src={damanframe1}
-              className="w-full h-22 lg:h-full object-cover hover:cursor-pointer scale-103 hover:scale-105 transition-all duration-150    "
+              className="w-full h-22 lg:h-full object-cover hover:cursor-pointer lg:scale-103 lg:hover:scale-105 transition-all duration-150    "
             />
           </div>
           <div className="bg-amber-100 overflow-hidden">
             <img
               src={damanframe2}
-              className="w-full h-22 lg:h-full object-cover hover:cursor-pointer scale-103 hover:scale-105 transition-all duration-150    "
+              className="w-full h-22 lg:h-full object-cover hover:cursor-pointer lg:scale-103 lg:hover:scale-105 transition-all duration-150    "
             />
           </div>
           <div className="bg-amber-100 overflow-hidden">
             <img
               src={beachStand}
-              className="w-full h-22 lg:h-full object-cover object-[50%_67%] lg:object-[50%_70%] hover:cursor-pointer hover:scale-105 transition-all duration-150    "
+              className="w-full h-22 lg:h-full object-cover object-[50%_67%] lg:object-[50%_70%] hover:cursor-pointer lg:hover:scale-105 transition-all duration-150    "
             />
           </div>
           <div className="bg-amber-100 overflow-hidden">
             <img
               src={sounew}
-              className="w-full h-22 lg:h-full object-cover object-[50%_70%] hover:cursor-pointer scale-122 hover:scale-125 transition-all duration-150    "
+              className="w-full h-22 lg:h-full object-cover object-[50%_70%] hover:cursor-pointer lg:scale-122 lg:hover:scale-125 transition-all duration-150    "
             />
           </div>
         </div>
@@ -64,25 +64,25 @@ const Photographs = () => {
             <div className="w-40 lg:w-70 aspect-[4/5] bg-blue-400 overflow-hidden">
               <img
                 src={dwarkaguy}
-                className="w-full h-full object-cover object-[50%_70%] hover:cursor-pointer scale-138 hover:scale-142 transition-all duration-150    "
+                className="w-full h-full object-cover object-[50%_70%] hover:cursor-pointer lg:scale-138 lg:hover:scale-142 transition-all duration-150    "
               />
             </div>
             <div className="w-40 lg:w-70 aspect-[4/5] bg-blue-500 overflow-hidden">
               <img
                 src={palace}
-                className="w-full h-full object-cover object-[50%_70%] hover:cursor-pointer scale-112 hover:scale-116 transition-all duration-150    "
+                className="w-full h-full object-cover object-[50%_70%] hover:cursor-pointer lg:scale-112 lg:hover:scale-116 transition-all duration-150    "
               />
             </div>
             <div className="w-40 lg:w-70 aspect-[4/5] bg-blue-600 overflow-hidden">
               <img
                 src={suratbridge}
-                className="w-full h-full object-cover object-[50%_70%] hover:cursor-pointer scale-124 hover:scale-125 transition-all duration-150    "
+                className="w-full h-full object-cover object-[50%_70%] hover:cursor-pointer lg:scale-124 lg:hover:scale-125 transition-all duration-150    "
               />
             </div>
             <div className="w-40 lg:w-70 aspect-[4/5] bg-blue-700 overflow-hidden">
               <img
                 src={nyc}
-                className="w-full h-full object-cover object-[50%_70%] hover:cursor-pointer scale-122 hover:scale-125 transition-all duration-150    "
+                className="w-full h-full object-cover object-[50%_70%] hover:cursor-pointer lg:scale-122 lg:hover:scale-125 transition-all duration-150    "
               />
             </div>
           </div>

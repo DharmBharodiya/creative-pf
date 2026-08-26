@@ -34,7 +34,7 @@ const Video = () => {
               >
                 <img
                   src={thumb2}
-                  className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
+                  className="w-full h-full object-cover lg:hover:scale-105 cursor-pointer duration-350 transition-all"
                 />
               </a>
             </div>
@@ -48,7 +48,7 @@ const Video = () => {
               >
                 <img
                   src={thumb1}
-                  className="w-full h-full object-cover object-top scale-[1.2] origin-top hover:scale-125 cursor-pointer duration-350 transition-all"
+                  className="w-full h-full object-cover object-top lg:scale-[1.2] origin-top lg:hover:scale-125 cursor-pointer duration-350 transition-all"
                 />
               </a>
             </div>
@@ -60,7 +60,7 @@ const Video = () => {
               >
                 <img
                   src={thumb3}
-                  className="w-full h-full object-cover hover:scale-105 cursor-pointer duration-350 transition-all"
+                  className="w-full h-full object-cover lg:hover:scale-105 cursor-pointer duration-350 transition-all"
                 />
               </a>
             </div>
