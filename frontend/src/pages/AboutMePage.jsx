@@ -46,10 +46,10 @@ const AboutMePage = () => {
               <div className="w-56 lg:w-96 aspect-4/5 flex justify-center items-center">
                 <img src={dhrmImage} className="w-full h-full object-cover" />
               </div>
-              <div className="w-56 lg:w-96 aspect-4/5 bg-red-900 flex justify-center items-center">
+              <div className="w-56 lg:w-96 aspect-4/5 bg-red-900 flex justify-center items-center overflow-hidden">
                 <img
                   src={sunsetImage}
-                  className="w-40 lg:w-80 aspect-4/5 object-cover lg:hover:w-56 lg:hover:aspect-[4/5] lg:hover:w-96 lg:hover:h-120 transition-all duration-400 cursor-pointer"
+                  className="w-40 lg:w-80 aspect-4/5 object-cover hover:w-56 lg:hover:w-96 transition-all duration-400 cursor-pointer"
                 />
               </div>
             </div>
